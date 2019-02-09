@@ -1,4 +1,4 @@
 # UdemyDiceGame
 
 
-A simple dice game
+A simple JavaScript dice game
