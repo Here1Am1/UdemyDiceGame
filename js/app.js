@@ -28,10 +28,10 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     var diceDOM2 = document.querySelector('.dice2');
 
     diceDOM.style.display = 'block';
-    diceDOM.src = 'dice-' + dice + '.png';
+    diceDOM.src = 'images/dice-' + dice + '.png';
 
     diceDOM2.style.display = 'block';
-    diceDOM2.src = 'dice-' + dice2 + '.png';
+    diceDOM2.src = 'images/dice-' + dice2 + '.png';
 
     // 3. Update the round score if one of the rolled numbers is not a 1, or if it is not two sixes
     if ((dice === 6 && previousRollOne === 6) || (dice2 === 6 && previousRollOne === 6) || (dice === 6 && dice2 ===6)

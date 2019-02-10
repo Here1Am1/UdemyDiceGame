@@ -32,7 +32,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back2.jpg);
+    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(../images/back2.jpg);
     background-size: cover;
     background-position: center;
     font-family: Lato;
@@ -91,17 +91,17 @@ body {
 
 .active .player-name::after {
     content: "\2022";
-    font-size: 47px;
+    font-size: 52px;
     position: absolute;
-    color: #EB4D4D;
-    top: -7px;
+    color: green;
+    top: -10px;
     right: 10px;
 
 }
 
 .player-current-box {
     background-color: #EB4D4D;
-    color: #fff;
+    color: aqua;
     width: 40%;
     margin: 0 auto;
     padding: 12px;
@@ -112,7 +112,7 @@ body {
     text-transform: uppercase;
     margin-bottom: 10px;
     font-size: 12px;
-    color: #222;
+    color: black;
 }
 
 .player-current-score {
