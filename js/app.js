@@ -151,7 +151,6 @@ function init() {
   gamePlaying = true
 
   document.querySelector('.score-limit').value = '';
-
   document.querySelector('.dice').style.display = 'none';
   document.querySelector('.dice2').style.display = 'none';
   document.getElementById('score-0').textContent = '0';
