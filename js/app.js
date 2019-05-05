@@ -3,15 +3,13 @@ GAME RULES:
 
 - The game has 2 players, playing in rounds
 - In each turn, a player rolls a dice as many times as he or she whishes. Each result gets added to his or her ROUND score
-- BUT, if the player rolls a 1, all ot their ROUND score gets lost. If two sixes are rolled back to back, all of that players
-- round score and saved score is lost. After that, it's the next player's turn
+- if the player rolls a 1 or two sixes, all of that players round score and saved score is lost. After that, it's the next player's turn
 - The player can choose to 'Hold', which means that their ROUND score gets added to their GLOBAL score. After that, it's the next player's turn
-- The first player to reach 100 points on GLOBAL score wins the game
+- The first player to reach 100 points or whatever is set as the winning amount wins the game
 
 */
 
-var scrores, roundScores, activePlayer, dice, gamePlaying;
-var previousRoll;
+var scrores, roundScore, activePlayer, dice, gamePlaying;
 
 init();
 
@@ -33,27 +31,36 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     diceDOM2.style.display = 'block';
     diceDOM2.src = 'images/dice-' + dice2 + '.png';
 
-    // 3. Update the round score if one of the rolled numbers is not a 1, or if it is not two sixes
-    if ((dice === 6 && previousRollOne === 6) || (dice2 === 6 && previousRollOne === 6) || (dice === 6 && dice2 ===6)
+    // 3. Update the round score if one of the rolled numbers is not a 1 or two sixes
+    if (dice === 1 && dice2 === 1) {
 
-      || (dice === 6 && previousRollTwo === 6) || (dice2 === 6 && previousRollTwo === 6)) {
-
-      // player loses score
-      scores[activePlayer] = 0;
-      document.querySelector('#score-' + activePlayer).textContent = '0';
-
-      // alert message for when two sixes are rolled consecutively
-      alert('You have rolled two sixes in a row. You lose your total score');
+      // alert message for when snake eyes are rolled
+      alert('You have rolled snake eyes You lose your current rolled score');
 
       // reset the dice and previousRoll varialbes for the next player's turn
       dice = 0;
       dice2 = 0;
-      previousRollOne = 0;
-      previousRollTwo = 0;
 
       nextPlayer();
 
-    } else if (dice !== 1 && dice2 !== 1) {
+    } else if (dice === 6 && dice2 === 6) {
+
+      // alert message for when two sixes are rolled consecutively
+      alert('You have rolled double sixes. You lose your total score');
+
+      // erase the current players total score
+      scores[activePlayer] = 0;
+
+      // update the UI to show the user lost their total score
+      document.querySelector('#score-' + activePlayer).textContent = 0;
+
+      // reset the dice and previousRoll varialbes for the next player's turn
+      dice = 0;
+      dice2 = 0;
+
+      nextPlayer();
+
+    } else {
 
       // Add score
       roundScore += dice + dice2;
@@ -61,15 +68,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
       // display active player's current round score
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
 
-    } else {
-
-      nextPlayer();
-
-    }// end of else for else if (dice !== 1)
-
-    // set previous roll varibles for when testing for consecutive sixes
-    previousRollOne = dice;
-    perviousRollTwo = dice2;
+    }// end of else for else if (dice === 6 && dice2 === 6)
 
   }// end of if (gamePlaying)
 
