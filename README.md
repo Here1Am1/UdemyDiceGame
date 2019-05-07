@@ -3,6 +3,8 @@
 
 A simple JavaScript dice game
 
+https://blitz43p.github.io/UdemyDiceGame/
+
 // Rules of the game
 * click the "roll dice" button as many times as you like to add up points
 * click the "hold" button to bank those points and then it is the other players turn
