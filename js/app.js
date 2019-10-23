@@ -113,6 +113,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
       document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
 
       gamePlaying = false;
+      alert(activePlayer+'WINNER');
 
     } else {
 
